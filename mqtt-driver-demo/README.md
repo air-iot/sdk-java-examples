@@ -10,7 +10,7 @@
 该示例驱动限制了每个实例只能连接一个 `MQTT` 服务器(但实际的二次开发中并没有限制), 然后允许每个工作表订阅一个 `Topic`
 并定义 `数据处理脚本` 和 `指令处理脚本`, 实现数据的接收和发送.
 
-更详细的开发说明请查阅文档 [Java SDK](https://docs.airiot.cn/development-manual/sdk/java-sdk)
+更详细的开发说明请查阅文档 [Java SDK](https://docs.airiot.cn/category/java)
 
 > 注: 该示例驱动中未处理 `MQTT` 连接断开后的相关处理等功能.
 
