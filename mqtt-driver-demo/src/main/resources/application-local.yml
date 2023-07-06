@@ -1,0 +1,15 @@
+airiot:
+  driver:
+    id: java-sdk-demo
+    name: JavaSDK示例驱动
+    project-id: 647d3f6db395ea47865d4b9e
+    instance-id: 64a619027ab69ab992916c8b
+mq:
+  mqtt:
+    host: 121.89.244.23
+    port: 1883
+    username: admin
+    password: public
+driver-grpc:
+  host: 121.89.244.23
+  port: 9224
