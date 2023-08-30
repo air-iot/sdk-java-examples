@@ -1,0 +1,6 @@
+algorithm:
+  id: JavaSDK
+  name: Java算法SDK示例项目
+algorithm-grpc:
+  host: v4.airiot.tech
+  port: 9236

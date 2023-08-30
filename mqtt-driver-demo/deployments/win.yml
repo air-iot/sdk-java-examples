@@ -1,0 +1,7 @@
+Name: mqtt-driver-demo
+Path: /mqtt-driver-demo
+Description: AIRIOT 二次开发示例驱动
+Version: 4.0.0
+ConfigType: application.yml
+GroupName: driver
+Command: java -jar mqtt-driver-demo.jar

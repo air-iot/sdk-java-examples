@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.air-iot</groupId>
@@ -9,9 +10,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>mqtt-driver-demo</artifactId>
-    <name>mqtt-driver-demo</name>
-    <description>AIRIOT 物联网平台二次开发-数据接入驱动示例项目</description>
+    <groupId>cn.airiot</groupId>
+    <artifactId>algorithm-example</artifactId>
+    <description>AIRIOT 物联网平台算法服务二次开发示例项目</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -26,14 +27,7 @@
         <!-- 数据接入驱动开发 SDK -->
         <dependency>
             <groupId>io.github.air-iot</groupId>
-            <artifactId>sdk-driver-starter</artifactId>
-        </dependency>
-        
-        <!-- MQTT 客户端 -->
-        <dependency>
-            <groupId>org.eclipse.paho</groupId>
-            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-            <version>1.2.5</version>
+            <artifactId>sdk-algorithm-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -69,5 +63,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -1,0 +1,7 @@
+Name: mqtt-driver-demo
+Path: /mqtt-driver-demo
+Description: AIRIOT 二次开发示例驱动
+Version: 4.0.0
+GroupName: driver
+Service: None
+Ports:

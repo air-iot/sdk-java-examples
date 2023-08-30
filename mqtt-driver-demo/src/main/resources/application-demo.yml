@@ -6,10 +6,10 @@ airiot:
     instance-id: JavaSdkDemo
 mq:
   mqtt:
-    host: 121.89.244.23
-    port: 1883
+    host: airiot.link
+    port: 55883
     username: admin
     password: public
 driver-grpc:
-  host: 121.89.244.23
-  port: 9224
+  host: airiot.link
+  port: 55224

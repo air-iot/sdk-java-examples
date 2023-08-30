@@ -1,0 +1,21 @@
+server:
+  port: 11580
+spring:
+  application:
+    name: sdk-client-http-examples
+airiot:
+  client:
+    http:
+      host: http://127.0.0.1:31000
+      default-config:
+        connect-timeout: 3000
+        read-timeout: 5000
+      services:
+        core:
+          connect-timeout: 5000
+          read-timeout: 15000
+    authorization:
+      project-id: 647d3f6db395ea47865d4b9e
+logging:
+  level:
+    io.github.airiot.sdk.client.http: DEBUG

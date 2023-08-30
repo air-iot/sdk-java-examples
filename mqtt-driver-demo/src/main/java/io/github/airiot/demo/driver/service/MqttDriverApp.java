@@ -8,6 +8,7 @@ import io.github.airiot.sdk.driver.config.DriverSingleConfig;
 import io.github.airiot.sdk.driver.data.DataSender;
 import io.github.airiot.sdk.driver.listener.BatchCmd;
 import io.github.airiot.sdk.driver.listener.Cmd;
+import io.github.airiot.sdk.driver.model.RunLog;
 import io.github.airiot.sdk.driver.model.Tag;
 import org.eclipse.paho.client.mqttv3.*;
 import org.slf4j.Logger;
@@ -128,7 +129,9 @@ public class MqttDriverApp implements DriverApp<DriverSingleConfig<MqttDriverCon
             try {
                 this.client.close(true);
             } catch (MqttException e) {
-                logger.warn("停止驱动: 关闭 mqtt 连接失败", e);
+                if (e.getReasonCode() != 32100) {
+                    logger.warn("停止驱动: 关闭 mqtt 连接失败", e);
+                }
             }
             this.client = null;
         }
@@ -148,10 +151,36 @@ public class MqttDriverApp implements DriverApp<DriverSingleConfig<MqttDriverCon
         MqttMessageListener.CommandResult result = listener.invokeCommandHandler(request.getDeviceId(), request.getCommand());
 
         try {
+            // 发送日志
+            this.dataSender.logInfo(request.getModelId(), request.getDeviceId(), "开始发送指令");
+
             this.client.publish(result.getTopic(), result.getPayload().getBytes(StandardCharsets.UTF_8), command.getOps().get(0).getQos(), false);
+
+            // 发送日志
+            this.dataSender.logInfo(request.getModelId(), request.getDeviceId(), "指令发送成功");
+
+            // 发送指令执行记日志
+            RunLog log = new RunLog();
+            log.setSerialNo(request.getSerialNo());
+            log.setStatus("自定义成功消息");
+            log.setTime(System.currentTimeMillis());
+            log.setDesc("发送成功");
+            this.dataSender.writeRunLog(log);
         } catch (MqttException e) {
             logger.error("发送指令: 发送失败, tableId={}, deviceId={}, topic={}, payload={}",
                     tableId, request.getDeviceId(), result.getPayload(), result.getPayload());
+
+            // 发送日志
+            this.dataSender.logError(request.getModelId(), request.getDeviceId(), "指令发送失败, " + e.getMessage());
+
+            // 发送指令执行记日志
+            RunLog log = new RunLog();
+            log.setSerialNo(request.getSerialNo());
+            log.setStatus("自定义失败消息");
+            log.setTime(System.currentTimeMillis());
+            log.setDesc(e.getMessage());
+            this.dataSender.writeRunLog(log);
+
             return e.getMessage();
         }
 

@@ -1,11 +1,7 @@
 target/
-.mvn/
-.idea/
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-application-*.yml
-application-*.yaml
-.flattened-pom.xml
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

@@ -1,0 +1,24 @@
+  {
+    "project": {
+      "name": 1,"model": 1, "warning": {"hasWarning": 1}
+    },
+
+    "filter": {
+      "name": "Tom",
+      "fullName": {"$regex": "la"},
+      "modelId": "5c6121b9982d2073b1a828a1",
+      "warning": {
+        "hasWarning": true
+      },
+      "$or": [
+        {"score": {"$gt": 70,"$lt": 90}},
+        {"views": {"$gte": 1000}}
+      ]
+    },
+
+    "sort": {"age": -1,"posts": 1},
+
+    "limit": 30,
+    "skip": 20,
+    "withCount": true
+  }

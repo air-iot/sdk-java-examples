@@ -1,0 +1,6 @@
+algorithm:
+  id: MyAlgorithm
+  name: 我的算法
+algorithm-grpc:
+  host: localhost
+  port: 9236
