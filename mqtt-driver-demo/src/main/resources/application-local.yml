@@ -1,7 +1,7 @@
 airiot:
   driver:
-    id: java-sdk-demo
-    name: java-sdk-demo
+    id: mqtt-driver-demo
+    name: mqtt-driver-demo
     project-id: 647d3f6db395ea47865d4b9e
     instance-id: JavaSdkDemo
 mq:

@@ -1,15 +1,13 @@
 airiot:
   driver:
-    id: java-sdk-demo
+    id: java-mqtt-driver-demo
     name: JavaSDK示例驱动
-    project-id: default                     # 空间版本, 需要修改为实际项目ID
-    instance-id: 64a619027ab69ab992916c8b   # 创建驱动实例后, 可点击编辑驱动实例后, 在地址栏中查看
 driver-grpc:
-  host: 127.0.0.1                           # 修改为平台地址
+  host: driver
   port: 9224
 mq:
   mqtt:
-    host: 127.0.0.1                         # 修改为平台地址
+    host: mqtt 
     port: 1883
     username: admin
     password: public

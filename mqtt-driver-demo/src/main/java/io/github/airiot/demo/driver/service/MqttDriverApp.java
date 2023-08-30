@@ -48,7 +48,7 @@ public class MqttDriverApp implements DriverApp<DriverSingleConfig<MqttDriverCon
 
     @Override
     public String getVersion() {
-        return "v4.1.0";
+        return "v4.0.0";
     }
 
     /**
@@ -58,6 +58,11 @@ public class MqttDriverApp implements DriverApp<DriverSingleConfig<MqttDriverCon
      * @return mqtt 客户端
      */
     private MqttClient createClient(String driverInstanceId, Settings settings) throws MqttException {
+        MqttConnectOptions options = new MqttConnectOptions();
+        options.setCleanSession(true);
+        options.setUserName(settings.getUsername());
+        options.setPassword(settings.getPassword().toCharArray());
+
         MqttClient client = new MqttClient(settings.getServer(), "java_sdk_demo_" + driverInstanceId);
         client.setCallback(new MqttCallbackExtended() {
             @Override
@@ -80,7 +85,7 @@ public class MqttDriverApp implements DriverApp<DriverSingleConfig<MqttDriverCon
 
             }
         });
-        client.connect();
+        client.connect(options);
         return client;
     }
 
